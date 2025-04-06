@@ -1,0 +1,35 @@
+@model IEnumerable<AnimalsMvc.Models.Doctor>
+
+<h2>Liste des Doctors</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.First().Nom)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Email)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Adresse)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Telephone)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Role)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Password)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Specialite)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var doctor in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => doctor.Nom)</td>
+                <td>@Html.DisplayFor(modelItem => doctor.Email)</td>
+                <td>@Html.DisplayFor(modelItem => doctor.Adresse)</td>
+                <td>@Html.DisplayFor(modelItem => doctor.Telephone)</td>
+                <td>@Html.DisplayFor(modelItem => doctor.Role)</td>
+                <td>@Html.DisplayFor(modelItem => doctor.Password)</td>
+                <td>@Html.DisplayFor(modelItem => doctor.Specialite)</td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = doctor.Id })" class="btn btn-info">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

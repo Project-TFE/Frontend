@@ -1,0 +1,120 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/*TO ADD*/
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6f2f5;
+    color: #00274d;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barre de navigation */
+.navbar {
+    background-color: #a9cce3;
+    padding: 10px;
+}
+
+.title-spacing {
+    margin-bottom: 1000px; /* Ajuste la valeur selon tes besoins */
+}
+
+.navbar-brand {
+    font-style: italic;
+    font-weight: bold;
+    color: #00274d;
+}
+
+.navbar-nav .nav-link {
+    color: #00274d;
+    font-weight: bold;
+}
+
+    .navbar-nav .nav-link:hover {
+        color: #004080;
+    }
+
+.btn-primary {
+    background-color: #5dade2;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+    .btn-primary:hover {
+        background-color: #2980b9;
+    }
+
+/* Contenu principal */
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Texte de bienvenue */
+h2 {
+    font-weight: bold;
+    font-style: normal;
+    text-align: left;
+    text-align: center;
+    color: #004080;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Image */
+.img-fluid {
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Pied de page */
+footer {
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #a9cce3;
+    color: #00274d;
+}

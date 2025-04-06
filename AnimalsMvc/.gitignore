@@ -1,0 +1,18 @@
+# Ignorer les dossiers de build
+bin/
+obj/
+
+# Ignorer les fichiers spécifiques générés par .NET
+*.pdb
+*.exe
+*.dll
+*.cache
+*.json
+*.txt
+*.props
+*.csproj.FileListAbsolute.txt
+*.sourcelink.json
+
+# Ignorer les fichiers de logs et autres fichiers temporaires
+logs/
+*.log

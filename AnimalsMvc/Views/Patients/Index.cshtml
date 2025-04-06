@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AnimalsMvc.Models.Patient>
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="fas fa-users text-primary me-2"></i>Liste des Patients</h2>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th><i class="fas fa-user text-primary me-2"></i>Nom</th>
+                            <th><i class="fas fa-envelope text-info me-2"></i>Email</th>
+                            <th><i class="fas fa-map-marker-alt text-danger me-2"></i>Adresse</th>
+                            <th><i class="fas fa-phone text-success me-2"></i>Téléphone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var patient in Model)
+                        {
+                            <tr>
+                                <td>@patient.Nom</td>
+                                <td>@patient.Email</td>
+                                <td>@patient.Adresse</td>
+                                <td>@patient.Telephone</td>
+                                <td>
+                                    <a href="@Url.Action("Details", new { id = patient.Id })" class="btn btn-info btn-sm">
+                                        <i class="fas fa-info-circle me-1"></i>Détails
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

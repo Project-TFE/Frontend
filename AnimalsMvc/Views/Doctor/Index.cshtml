@@ -1,0 +1,43 @@
+@model IEnumerable<AnimalsMvc.Models.Doctor>
+
+<div class="container py-4">
+    <h2 class="mb-4">Nos Médecins</h2>
+
+    <div class="row g-4">
+        @foreach (var doctor in Model)
+        {
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-user-md fa-2x text-success me-3"></i>
+                            <div>
+                                <h5 class="card-title mb-0">Dr. @doctor.Nom</h5>
+                                <p class="text-muted mb-0">@doctor.Specialite</p>
+                            </div>
+                        </div>
+                        <p class="card-text">
+                            @if (!string.IsNullOrEmpty(doctor.Email))
+                            {
+                                <i class="fas fa-envelope text-info me-2"></i>@doctor.Email<br>
+                            }
+                            @if (!string.IsNullOrEmpty(doctor.Telephone))
+                            {
+                                <i class="fas fa-phone text-warning me-2"></i>@doctor.Telephone<br>
+                            }
+                            @if (!string.IsNullOrEmpty(doctor.Adresse))
+                            {
+                                <i class="fas fa-map-marker-alt text-danger me-2"></i>@doctor.Adresse
+                            }
+                        </p>
+                        <div class="mt-3">
+                            <a href="/Appointment/Book/@doctor.Id" class="btn btn-primary">
+                                <i class="fas fa-calendar-plus me-2"></i>Prendre RDV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
