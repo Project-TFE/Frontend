@@ -18,7 +18,7 @@ namespace AnimalsMvc.Services
 
         public async Task<IEnumerable<Patient>> GetPatientsAsync()
         {
-            var response = await _httpClient.GetAsync("http://localhost:8080/api/patients");
+            var response = await _httpClient.GetAsync("http://backend-service:8080/api/patients");
             response.EnsureSuccessStatusCode(); // Lève une exception si la réponse n'est pas réussie
             return await response.Content.ReadFromJsonAsync<IEnumerable<Patient>>();
         }

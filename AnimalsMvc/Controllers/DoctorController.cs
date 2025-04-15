@@ -10,7 +10,7 @@ namespace AnimalsMvc.Controllers
     public class DoctorController : Controller
     {
         private readonly HttpClient _httpClient;
-        private readonly string _apiUrl = "http://localhost:8080/api/medecins";
+        private readonly string _apiUrl = "http://backend-service:8080/api/medecins";
 
         public DoctorController(HttpClient httpClient)
         {

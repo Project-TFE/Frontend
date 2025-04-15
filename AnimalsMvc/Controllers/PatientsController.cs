@@ -8,7 +8,7 @@ using AnimalsMvc.Models;
 public class PatientsController : Controller
 {
     private readonly HttpClient _httpClient;
-    private readonly string _apiUrl = "http://localhost:8080/api/patients";
+    private readonly string _apiUrl = "http://backend-service:8080/api/patients";
 
     public PatientsController(HttpClient httpClient)
     {
