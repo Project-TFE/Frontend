@@ -2,8 +2,8 @@ pipeline {
     agent { label 'azure-agent' }
 
     environment {
-        DOCKER_USERNAME = "aymar100"
         DOCKER_REGISTRY = "index.docker.io"
+        DOCKER_USERNAME = "aymar100"
         IMAGE_NAME = "frontend-app"
     }
 
@@ -25,7 +25,7 @@ pipeline {
                 script {
                     def image = docker.build("${DOCKER_USERNAME}/${IMAGE_NAME}:latest")
 
-                    docker.withRegistry("https://${DOCKER_REGISTRY}", 'docker-credentials') {
+                    docker.withRegistry("https://index.docker.io/v1/", 'docker-credentials') {
                         image.push()
                     }
                 }
