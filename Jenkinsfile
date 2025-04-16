@@ -9,7 +9,9 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                checkout scm
+                git branch: 'main',
+                    credentialsId: 'effe7fbc-ffc7-4911-882d-b9e13e2adfe7',
+                    url: 'https://github.com/Project-TFE/Frontend.git'
             }
         }
 
