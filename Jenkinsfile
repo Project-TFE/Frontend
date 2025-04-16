@@ -2,6 +2,7 @@ pipeline {
     agent { label 'azure-agent' }
 
     environment {
+        DOCKER_USERNAME = "aymar100"
         DOCKER_REGISTRY = "index.docker.io"
         IMAGE_NAME = "frontend-app"
     }
@@ -22,7 +23,9 @@ pipeline {
         stage('Build & Push Docker Image') {
             steps {
                 script {
-                    def image = docker.build("${DOCKER_REGISTRY}/${IMAGE_NAME}:${BUILD_NUMBER}")
+                    def imageTag = "${DOCKER_USERNAME}/${IMAGE_NAME}:${BUILD_NUMBER}"
+                    def image = docker.build(imageTag)
+
                     docker.withRegistry("https://${DOCKER_REGISTRY}", 'docker-credentials') {
                         image.push()
                         image.push("latest")
