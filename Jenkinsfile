@@ -18,7 +18,7 @@ pipeline {
         stage('Build & Push Docker Image') {
             steps {
                 script {
-                    def image = docker.build("${DOCKER_REGISTRY}/${IMAGE_NAME}:${BUILD_NUMBER}", "./Frontend")
+                    def image = docker.build("${DOCKER_REGISTRY}/${IMAGE_NAME}:${BUILD_NUMBER}", ".")
                     docker.withRegistry("https://${DOCKER_REGISTRY}", 'docker-credentials') {
                         image.push()
                         image.push("latest")
