@@ -23,7 +23,7 @@ pipeline {
         stage('Build & Push Docker Image') {
             steps {
                 script {
-                    def imageTag = "${DOCKER_USERNAME}/${IMAGE_NAME}:${BUILD_NUMBER}"
+                    def imageTag = "${DOCKER_USERNAME}/${IMAGE_NAME}}"
                     def image = docker.build(imageTag)
 
                     docker.withRegistry("https://${DOCKER_REGISTRY}", 'docker-credentials') {
