@@ -2,7 +2,7 @@ pipeline {
     agent { label 'azure-agent' }
 
     environment {
-        DOCKER_REGISTRY = "aymar100"
+        DOCKER_REGISTRY = "index.docker.io"
         IMAGE_NAME = "frontend-app"
     }
 
