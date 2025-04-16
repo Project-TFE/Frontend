@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'azure' }
+    agent { label 'azure-agent' }
 
     environment {
         DOCKER_USERNAME = "aymar100"
