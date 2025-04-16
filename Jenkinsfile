@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'azure-agent' }
 
     environment {
         DOCKER_REGISTRY = "aymar100"
