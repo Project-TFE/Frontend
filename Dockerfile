@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /Ehealth/AnimalsMvc
-COPY AnimalsMvc/*.csproj ./
+COPY Ehealth/AnimalsMvc/*.csproj ./
 RUN dotnet restore
 COPY Ehealth/AnimalsMvc/. ./
 RUN dotnet publish -c Release -o /app
