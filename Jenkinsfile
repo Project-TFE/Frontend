@@ -29,7 +29,7 @@ pipeline {
                         sh """
                             dotnet restore
                             dotnet tool install --global dotnet-sonarscanner
-                            export PATH=\"$PATH:/root/.dotnet/tools\"
+                            export PATH=\"$PATH:/home/azureuser/.dotnet/tools\"
                             dotnet sonarscanner begin /k:${SONAR_PROJECT_KEY} /d:sonar.host.url=${SONAR_HOST_URL} /d:sonar.login=${SONAR_AUTH_TOKEN}
                             dotnet build
                             dotnet sonarscanner end /d:sonar.login=${SONAR_AUTH_TOKEN}
