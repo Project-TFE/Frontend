@@ -26,13 +26,14 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     sh """
-                        npm install
-                        npm run build
-                        sonar-scanner \
-                            -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
-                            -Dsonar.sources=. \
-                            -Dsonar.host.url=${SONAR_HOST_URL} \
-                            -Dsonar.login=${SONAR_AUTH_TOKEN}
+                        dotnet restore
+                        dotnet build
+                        dotnet sonarscanner begin \
+                            /k:${SONAR_PROJECT_KEY} \
+                            /d:sonar.host.url=${SONAR_HOST_URL} \
+                            /d:sonar.login=${SONAR_AUTH_TOKEN}
+                        dotnet build
+                        dotnet sonarscanner end /d:sonar.login=${SONAR_AUTH_TOKEN}
                     """
                 }
             }
