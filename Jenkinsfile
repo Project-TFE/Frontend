@@ -5,7 +5,7 @@ pipeline {
         DOCKER_REGISTRY = "index.docker.io"
         DOCKER_USERNAME = "aymar100"
         IMAGE_NAME = "frontend-app"
-        SONAR_PROJECT_KEY = 'E-Health-F'
+        SONAR_PROJECT_KEY = 'Ehealth-F'
     }
 
     stages {
