@@ -29,7 +29,7 @@ pipeline {
                         sh """
                             dotnet restore
                             dotnet tool install --global dotnet-sonarscanner
-                            export PATH=\"$PATH:/home/azureuser/.dotnet/tools\"
+                            export PATH="\$PATH:/home/azureuser/.dotnet/tools"
                             dotnet sonarscanner begin /k:${SONAR_PROJECT_KEY} /d:sonar.host.url=${SONAR_HOST_URL} /d:sonar.login=${SONAR_AUTH_TOKEN}
                             dotnet build
                             dotnet sonarscanner end /d:sonar.login=${SONAR_AUTH_TOKEN}
@@ -39,11 +39,18 @@ pipeline {
             }
         }
 
-        stage('Build & Push Docker Image') {
+        stage('Build Docker Image') {
             steps {
                 script {
-                    def image = docker.build("${DOCKER_USERNAME}/${IMAGE_NAME}:latest")
+                    docker.build("${DOCKER_USERNAME}/${IMAGE_NAME}:latest")
+                }
+            }
+        }
 
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    def image = docker.image("${DOCKER_USERNAME}/${IMAGE_NAME}:latest")
                     docker.withRegistry("https://index.docker.io/v1/", 'docker-credentials') {
                         image.push()
                     }
